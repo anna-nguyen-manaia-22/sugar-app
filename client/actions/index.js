@@ -1,19 +1,21 @@
-import { getFruits } from '../apis/fruits'
+import { getListBS } from '../apis/apiClient'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const LIST_BS_SUCCESS = 'LIST_BS_SUCCESS'
 
-export function setFruits(fruits) {
+export function listBSSuccess(blood_sugars) {
   return {
-    type: SET_FRUITS,
-    payload: fruits,
+    type: LIST_BS_SUCCESS,
+    payload: blood_sugars,
   }
 }
 
-export function fetchFruits() {
+export function listBSRequest(blood_sugars) {
   return (dispatch) => {
-    return getFruits().then((fruits) => {
-      dispatch(setFruits(fruits))
-      return null
-    })
+    return getListBS()
+      .then((result) => {
+        console.log('getListBS', result)
+        dispatch(listBSSuccess(blood_sugars))
+      })
+      .catch((e) => console.error(e.message))
   }
 }

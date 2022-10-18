@@ -1,26 +1,27 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, Route, Routes } from 'react-router-dom'
 
-import { fetchFruits } from '../actions'
+import { listBSRequest } from '../actions'
+import ListBS from './ListBS'
 
-function App () {
-  const fruits = useSelector(state => state.fruits)
+function App() {
+  const bloodSugars = useSelector((state) => state.bloodSugars)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchFruits())
+    dispatch(listBSRequest())
   }, [])
 
   return (
-    <>
-      <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <div>
+      <h1>Welcome to My Sugar App!</h1>
+      <Routes>
+        <Route path="/list-BS" element={<ListBS />} />
+      </Routes>
+      <br />
+      <Link to="list-bs">My sugar list</Link>
+      <br />
+    </div>
   )
 }
 
