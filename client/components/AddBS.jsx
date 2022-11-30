@@ -34,7 +34,7 @@ function addBS(props) {
             id="date"
             name="date"
             value={date}
-            onchange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -44,7 +44,7 @@ function addBS(props) {
             id="time"
             name="time"
             value={time}
-            onchange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -54,7 +54,7 @@ function addBS(props) {
             id="BS"
             name="bs_value"
             value={bs_value}
-            onchange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -65,7 +65,7 @@ function addBS(props) {
             id="note"
             name="note"
             value={note}
-            onchange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <input type="submit" />
