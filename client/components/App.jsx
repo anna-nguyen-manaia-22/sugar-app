@@ -7,7 +7,7 @@ import ListBS from './ListBS'
 import AddBS from './AddBS'
 
 function App() {
-  const bloodSugars = useSelector((state) => state.bloodSugars)
+  const BS = useSelector((state) => state.BS)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(listBSRequest())

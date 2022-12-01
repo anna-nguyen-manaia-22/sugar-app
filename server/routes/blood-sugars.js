@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const data = req.body
-  console.log('post payload', data)
   db.addBS(data)
     .then((results) => results[0])
     .then((id) => db.getBsById(id))

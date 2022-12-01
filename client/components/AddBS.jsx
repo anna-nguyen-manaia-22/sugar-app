@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addRecordRequest } from '../actions'
-const initialData = { date: '', time: '', BS: '', note: '' }
+const initialData = { date: '', time: '', bs_value: 0, note: '' }
 
-function addBS(props) {
+function addBS() {
   const [data, setData] = useState(initialData)
-  const { date, time, bs_value, note } = data
+
   const dispatch = useDispatch()
 
   function handleChange(event) {
@@ -14,14 +14,16 @@ function addBS(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(addRecordRequest())
-    setData(initialData)
 
-    props.addRecord({
-      measure_datetime: Date.parse(`${date}T$(time):00`),
+    const { date, time, bs_value, note } = data
+    const newSugar = {
       bs_value,
       note,
-    })
+      measure_datetime: Date.parse(`${date}T${time}:00`),
+    }
+
+    dispatch(addRecordRequest(newSugar))
+    setData(initialData)
   }
   return (
     <div>
@@ -33,7 +35,7 @@ function addBS(props) {
             type="date"
             id="date"
             name="date"
-            value={date}
+            value={data.date}
             onChange={handleChange}
           />
         </div>
@@ -43,7 +45,7 @@ function addBS(props) {
             type="time"
             id="time"
             name="time"
-            value={time}
+            value={data.time}
             onChange={handleChange}
           />
         </div>
@@ -53,7 +55,7 @@ function addBS(props) {
             type="decimal"
             id="BS"
             name="bs_value"
-            value={bs_value}
+            value={data.bs_value}
             onChange={handleChange}
           />
         </div>
@@ -64,11 +66,11 @@ function addBS(props) {
             type="text"
             id="note"
             name="note"
-            value={note}
+            value={data.note}
             onChange={handleChange}
           />
         </div>
-        <input type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   )

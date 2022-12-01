@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { getListBS } from '../apis/apiClient'
+import { deleteRecordRequest } from '../actions'
 
 export default function ListBS() {
+  const dispatch = useDispatch()
   const [bloodsugars, setBloodsugars] = useState([])
   useEffect(() => {
     getListBS()
@@ -13,6 +16,11 @@ export default function ListBS() {
         throw err
       })
   }, [])
+
+  function onDelete(id) {
+    dispatch(deleteRecordRequest(id))
+  }
+
   return (
     <>
       <h3>List of Blood Sugar Values</h3>
@@ -39,6 +47,7 @@ export default function ListBS() {
                 </td>
 
                 <td>{e.bs_value}</td>
+                <button onClick={() => onDelete(e.id)}></button>
               </tr>
             )
           })}
