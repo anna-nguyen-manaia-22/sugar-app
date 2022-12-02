@@ -15,8 +15,13 @@ function getBsById(id, db = connection) {
     .then((bloodSugars) => bloodSugars[0])
 }
 
+function deleteBS(id, db = connection) {
+  return db('blood_sugar_values').delete().where('id', id)
+}
+
 module.exports = {
   getBloodSugars,
   addBS,
   getBsById,
+  deleteBS,
 }

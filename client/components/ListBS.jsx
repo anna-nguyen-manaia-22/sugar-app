@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { getListBS } from '../apis/apiClient'
-import { deleteRecordRequest } from '../actions'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteRecordRequest, listBSRequest } from '../actions'
 
 export default function ListBS() {
   const dispatch = useDispatch()
-  const [bloodsugars, setBloodsugars] = useState([])
+  const bloodsugars = useSelector((state) => state.BS)
   useEffect(() => {
-    getListBS()
-      .then((data) => {
-        setBloodsugars(data)
-      })
-      .catch((err) => {
-        console.error(err)
-        throw err
-      })
+    dispatch(listBSRequest())
   }, [])
 
   function onDelete(id) {
@@ -47,7 +39,9 @@ export default function ListBS() {
                 </td>
 
                 <td>{e.bs_value}</td>
-                <button onClick={() => onDelete(e.id)}></button>
+                <td>
+                  <button onClick={() => onDelete(e.id)}></button>
+                </td>
               </tr>
             )
           })}

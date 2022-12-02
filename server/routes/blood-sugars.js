@@ -23,4 +23,15 @@ router.post('/', (req, res) => {
     .catch((err) => apiError(err, res))
 })
 
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  db.deleteBS(id)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

@@ -16,3 +16,9 @@ export function addBS(newBS) {
       return res.body
     })
 }
+
+export function deleteBS(id) {
+  return request.delete(rootUrl + `/blood-sugars/${id}`).then((res) => {
+    return res.body
+  })
+}

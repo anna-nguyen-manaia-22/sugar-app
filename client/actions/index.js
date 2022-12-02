@@ -1,4 +1,4 @@
-import { addBS, getListBS } from '../apis/apiClient'
+import { addBS, deleteBS, getListBS } from '../apis/apiClient'
 
 export const LIST_BS_SUCCESS = 'LIST_BS_SUCCESS'
 export const ADD_BS_SUCCESS = 'ADD_BS_SUCCESS'
@@ -27,7 +27,11 @@ export function deleteRecordSuccess(id) {
 
 export function deleteRecordRequest(id) {
   return (dispatch) => {
-    dispatch(deleteRecordSuccess(id))
+    return deleteBS(id)
+      .then(() => {
+        dispatch(deleteRecordSuccess(id))
+      })
+      .catch((e) => console.error(e.message))
   }
 }
 
