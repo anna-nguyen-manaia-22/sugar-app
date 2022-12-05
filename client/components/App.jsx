@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+// import { useDispatch } from 'react-redux'
 import { Link, Route, Routes } from 'react-router-dom'
 
-import { listBSRequest } from '../actions'
+// import { listBSRequest } from '../actions'
 import ListBS from './ListBS'
 import AddBS from './AddBS'
 
 function App() {
-  const BS = useSelector((state) => state.BS)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(listBSRequest())
-  }, [])
+  // const BS = useSelector((state) => state.BS)
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(listBSRequest())
+  // }, [])
 
   return (
     <div>

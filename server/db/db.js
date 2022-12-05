@@ -19,9 +19,23 @@ function deleteBS(id, db = connection) {
   return db('blood_sugar_values').delete().where('id', id)
 }
 
+function editBS(id, newBS, db = connection) {
+  // const { date, time, bs_value, note } = data
+
+  return db('blood_sugar_values')
+    .update({
+      date: newBS.date,
+      time: newBS.time,
+      bs_value: newBS.bs_value,
+      note: newBS.note,
+    })
+    .where('id', id)
+    .then(() => getBsById(id, db))
+}
 module.exports = {
   getBloodSugars,
   addBS,
   getBsById,
   deleteBS,
+  editBS,
 }

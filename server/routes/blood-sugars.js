@@ -34,4 +34,14 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const editedBS = req.body
+  db.editBS(id, editedBS)
+    .then((result) => res.json(result))
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router
