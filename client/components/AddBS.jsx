@@ -30,7 +30,7 @@ function addBS() {
       <h3> Add new blood sugar value</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <lable htmlFor="date">Date</lable>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
             id="date"
@@ -40,7 +40,7 @@ function addBS() {
           />
         </div>
         <div>
-          <lable htmlFor="time">Time</lable>
+          <label htmlFor="time">Time</label>
           <input
             type="time"
             id="time"
@@ -50,7 +50,7 @@ function addBS() {
           />
         </div>
         <div>
-          <lable htmlFor="BS">Blood Sugar Value</lable>
+          <label htmlFor="BS">Blood Sugar Value</label>
           <input
             type="decimal"
             id="BS"
@@ -60,7 +60,7 @@ function addBS() {
           />
         </div>
         <div>
-          <lable htmlFor="note">Note</lable>
+          <label htmlFor="note">Note</label>
           <input
             rows="5"
             type="text"

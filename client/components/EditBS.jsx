@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { editRecordRequest } from '../actions'
 
 function editBS(props) {
-  const { bsRecord } = props
+  const { bsRecord, setOnEditing } = props
   const [data, setData] = useState(bsRecord)
-  console.log('bsRecord', props, bsRecord)
-  function handleSubmit(e) {
+  const dispatch = useDispatch()
+  function handleSave(e) {
     e.preventDefault()
 
     const { date, time, bs_value, note } = data
@@ -16,8 +16,8 @@ function editBS(props) {
       measure_datetime: Date.parse(`${date}T${time}:00`),
     }
 
-    useDispatch(editRecordRequest(newSugar))
-    setData(newSugar)
+    dispatch(editRecordRequest(bsRecord.id, newSugar))
+    setOnEditing(false)
   }
 
   function handleChange(event) {
@@ -25,18 +25,13 @@ function editBS(props) {
   }
 
   const measure_datetime = new Date(bsRecord.measure_datetime)
-  console.log(bsRecord.measure_datetime)
-  console.log(measure_datetime)
-  console.log(measure_datetime.toISOString())
-  console.log(measure_datetime.toDateString())
-  console.log(measure_datetime.toTimeString())
-  console.log(measure_datetime.toLocaleTimeString())
+
   return (
     <div>
       <h3> Edit your blood sugar value</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
-          <lable htmlFor="date">Date</lable>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
             id="date"
@@ -46,7 +41,7 @@ function editBS(props) {
           />
         </div>
         <div>
-          <lable htmlFor="time">Time</lable>
+          <label htmlFor="time">Time</label>
           <input
             type="time"
             id="time"
@@ -56,7 +51,7 @@ function editBS(props) {
           />
         </div>
         <div>
-          <lable htmlFor="BS">Blood Sugar Value</lable>
+          <label htmlFor="BS">Blood Sugar Value</label>
           <input
             type="decimal"
             id="BS"
@@ -66,7 +61,7 @@ function editBS(props) {
           />
         </div>
         <div>
-          <lable htmlFor="note">Note</lable>
+          <label htmlFor="note">Note</label>
           <input
             rows="5"
             type="text"
@@ -76,7 +71,7 @@ function editBS(props) {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button onClick={handleSave}>Save</button>
       </form>
     </div>
   )

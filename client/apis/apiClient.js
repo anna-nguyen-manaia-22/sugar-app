@@ -22,3 +22,12 @@ export function deleteBS(id) {
     return res.body
   })
 }
+
+export function editBS(id, newBS) {
+  return request
+    .patch(rootUrl + `/blood-sugars/${id}`)
+    .send(newBS)
+    .then((res) => {
+      return res.body
+    })
+}

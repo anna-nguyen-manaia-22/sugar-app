@@ -1,4 +1,4 @@
-import { addBS, deleteBS, getListBS } from '../apis/apiClient'
+import { addBS, deleteBS, editBS, getListBS } from '../apis/apiClient'
 
 export const LIST_BS_SUCCESS = 'LIST_BS_SUCCESS'
 export const ADD_BS_SUCCESS = 'ADD_BS_SUCCESS'
@@ -26,16 +26,21 @@ export function deleteRecordSuccess(id) {
   }
 }
 
-export function editRecordSuccess(id) {
+export function editRecordSuccess(id, data) {
   return {
     type: EDIT_BS_SUCCESS,
-    payload: id,
+    payload: { id, data },
   }
 }
 
-export function editRecordRequest(id) {
+export function editRecordRequest(id, data) {
+  console.log('tra cai gi 2', id, data)
   return (dispatch) => {
-    dispatch(editRecordSuccess(id))
+    return editBS(id, data)
+      .then(() => {
+        dispatch(editRecordSuccess(id, data))
+      })
+      .catch((e) => console.error(e.message))
   }
 }
 

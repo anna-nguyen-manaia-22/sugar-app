@@ -21,7 +21,7 @@ export default function BSItem({ bsRecord }) {
       {onEditing ? (
         <React.Fragment>
           <td colSpan="*">
-            <EditBS bsRecord={bsRecord} />
+            <EditBS bsRecord={bsRecord} setOnEditing={setOnEditing} />
           </td>
         </React.Fragment>
       ) : (
