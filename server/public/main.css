@@ -1,0 +1,19 @@
+body {
+  font-family: monospace;
+  background-color: rgb(142, 171, 226);
+  background: url('./BS-monitor.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+nav {
+  max-width: 100%;
+  max-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(252, 153, 72);
+  padding: 20px 0 20px 0;
+}

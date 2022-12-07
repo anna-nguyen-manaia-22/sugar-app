@@ -20,8 +20,6 @@ function deleteBS(id, db = connection) {
 }
 
 function editBS(id, newBS, db = connection) {
-  // const { date, time, bs_value, note } = data
-
   return db('blood_sugar_values')
     .update({
       date: newBS.date,
