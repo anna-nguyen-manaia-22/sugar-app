@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux'
 import { deleteRecordRequest } from '../actions'
 import EditBS from './EditBS'
 
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
+
 export default function BSItem({ bsRecord }) {
   const dispatch = useDispatch()
   const [onEditing, setOnEditing] = useState(false)
@@ -14,34 +17,37 @@ export default function BSItem({ bsRecord }) {
   const measure_datetime = new Date(bsRecord.measure_datetime)
 
   return (
-    <tr
+    <TableRow
       key={bsRecord.id}
+      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
       onDoubleClick={() => setOnEditing((onEditing) => !onEditing)}
     >
       {onEditing ? (
         <React.Fragment>
-          <td colSpan="*">
+          <TableCell colSpan="*" align="right">
             <EditBS bsRecord={bsRecord} setOnEditing={setOnEditing} />
-          </td>
+          </TableCell>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <td>{measure_datetime.toLocaleDateString('en-nz')}</td>
+          <TableCell align="right">
+            {measure_datetime.toLocaleDateString('en-nz')}
+          </TableCell>
 
-          <td>
+          <TableCell align="right">
             {measure_datetime.toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
             })}
-          </td>
+          </TableCell>
 
-          <td>{bsRecord.bs_value}</td>
-          <td>{bsRecord.note}</td>
-          <td>
+          <TableCell align="right">{bsRecord.bs_value}</TableCell>
+          <TableCell align="right">{bsRecord.note}</TableCell>
+          <TableCell align="right">
             <button onClick={() => onDelete(bsRecord.id)}></button>
-          </td>
+          </TableCell>
         </React.Fragment>
       )}
-    </tr>
+    </TableRow>
   )
 }

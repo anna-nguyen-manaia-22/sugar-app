@@ -34,7 +34,6 @@ export function editRecordSuccess(id, data) {
 }
 
 export function editRecordRequest(id, data) {
-  console.log('tra cai gi 2', id, data)
   return (dispatch) => {
     return editBS(id, data)
       .then(() => {
