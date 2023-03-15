@@ -2,12 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listBSRequest } from '../actions'
 import BSItem from './BSItem'
-import Table from '@mui/material/Table'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
 export default function ListBS() {
   const dispatch = useDispatch()
   const bloodsugars = useSelector((state) => state.BS)
@@ -18,24 +12,24 @@ export default function ListBS() {
   return (
     <>
       <h3>List of Blood Sugar Values</h3>
-      <TableContainer>
-        <Table sx={{ maxWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Time</TableCell>
-              <TableCell align="right">BS Value</TableCell>
-              <TableCell align="right">Note</TableCell>
-              <TableCell align="right">Delete</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+      <div style={{ maxWidth: 650 }}>
+        <table className="u-full-width" aria-label="simple table">
+          <thead>
+            <tr>
+              <th align="right">Date</th>
+              <th align="right">Time</th>
+              <th align="right">BS Value</th>
+              <th align="right">Note</th>
+              <th align="right">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
             {bloodsugars.map((bsRecord) => (
               <BSItem key={bsRecord.id} bsRecord={bsRecord} />
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }
