@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteRecordRequest } from '../actions'
+import { FiDelete } from 'react-icons/fi'
 import EditBS from './EditBS'
 
 import TableRow from '@mui/material/TableRow'
@@ -44,7 +45,7 @@ export default function BSItem({ bsRecord }) {
           <TableCell align="right">{bsRecord.bs_value}</TableCell>
           <TableCell align="right">{bsRecord.note}</TableCell>
           <TableCell align="right">
-            <button onClick={() => onDelete(bsRecord.id)}></button>
+            <FiDelete onClick={() => onDelete(bsRecord.id)} />
           </TableCell>
         </React.Fragment>
       )}
