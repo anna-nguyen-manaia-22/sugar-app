@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addRecordRequest } from '../actions'
+import { addRecordRequest } from '../actions/bs'
 const initialData = { date: '', time: '', bs_value: 0, note: '' }
 
 function addBS() {

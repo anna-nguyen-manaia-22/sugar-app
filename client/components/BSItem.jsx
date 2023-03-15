@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteRecordRequest } from '../actions'
+import { deleteRecordRequest } from '../actions/bs'
 import { FiDelete } from 'react-icons/fi'
 import EditBS from './EditBS'
 

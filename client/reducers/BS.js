@@ -3,7 +3,7 @@ import {
   DEL_BS_SUCCESS,
   EDIT_BS_SUCCESS,
   LIST_BS_SUCCESS,
-} from '../actions'
+} from '../actions/bs'
 
 const initialState = []
 

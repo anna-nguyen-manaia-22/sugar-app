@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { editRecordRequest } from '../actions'
+import { editRecordRequest } from '../actions/bs'
 
 function editBS(props) {
   const { bsRecord, setOnEditing } = props

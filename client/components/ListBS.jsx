@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listBSRequest } from '../actions'
+import { listBSRequest } from '../actions/bs'
 import BSItem from './BSItem'
 export default function ListBS() {
   const dispatch = useDispatch()
