@@ -17,3 +17,7 @@ nav {
   background-color: rgb(252, 153, 72);
   padding: 20px 0 20px 0;
 }
+
+nav a {
+  color: #131718;
+}
