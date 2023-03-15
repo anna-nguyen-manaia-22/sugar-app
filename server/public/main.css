@@ -3,7 +3,7 @@ body {
   background-color: rgb(142, 171, 226);
   background: url('./BS-monitor.jpg');
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
   height: 100vh;
 }
