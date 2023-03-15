@@ -24,7 +24,6 @@ export default function ListBS() {
             <TableRow>
               <TableCell align="right">Date</TableCell>
               <TableCell align="right">Time</TableCell>
-              <TableCell align="right">Date</TableCell>
               <TableCell align="right">BS Value</TableCell>
               <TableCell align="right">Note</TableCell>
               <TableCell align="right">Delete</TableCell>
