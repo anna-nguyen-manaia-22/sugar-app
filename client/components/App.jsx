@@ -11,10 +11,10 @@ function App() {
     <div>
       <h1>Welcome to My Sugar App!</h1>
       <Nav />
-      <GraphBS />
       <Routes>
-        <Route path="/list-BS" element={<ListBS />} />
-        <Route path="/add-BS" element={<AddBS />} />
+        <Route path="/" element={<GraphBS />} />
+        <Route path="list-BS" element={<ListBS />} />
+        <Route path="add-BS" element={<AddBS />} />
       </Routes>
     </div>
   )
