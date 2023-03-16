@@ -1,6 +1,6 @@
 import nock from 'nock'
 
-import { addBS, deleteBS, getListBS } from './apiClient'
+import { addBS, deleteBS, getListBS } from '../apiClient'
 
 describe('List BS', () => {
   it('can get the list of records', () => {

@@ -1,7 +1,7 @@
-import { addRecordRequest, ADD_BS_SUCCESS } from './bs'
-import { addBS } from '../apis/apiClient'
+import { addRecordRequest, ADD_BS_SUCCESS } from '../bs'
+import { addBS } from '../../apis/apiClient'
 
-jest.mock('../apis/apiClient')
+jest.mock('../../apis/apiClient')
 
 const fakeDispatch = jest.fn()
 
