@@ -22,6 +22,14 @@ function addBS() {
       measure_datetime: Date.parse(`${date}T${time}:00`),
     }
 
+    if (newSugar.bs_value < 3) {
+      alert('too low! you should drink some juice immediately')
+    } else if ((newSugar.bs_value >= 3) & (newSugar.bs_value <= 7)) {
+      alert('well done!')
+    } else if (newSugar.bs_value > 7) {
+      alert('too high! you should go for a walk now')
+    }
+
     dispatch(addRecordRequest(newSugar))
     setData(initialData)
   }
