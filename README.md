@@ -1,4 +1,5 @@
 # Blood Sugar Tracker
+![image](https://github.com/anna-nguyen-manaia-22/sugar-app/assets/107183001/f08f7324-0a94-4a09-9107-d33a46586518)
 
 ## TL;DR
 This is a web app to keep track of blood sugar everyday for diabetic patients.
